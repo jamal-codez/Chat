@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .man{
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+            .man h1{
+                    font-size: 70px;
+                    font-family: Verdana, Geneva, Tahoma, sans-serif;
+                    font-weight: bold;
+            }
+            .man img{
+                width: 500px;
+                height: 500px;
+                border-radius: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="man">
+        <h1>PROFILE</h1>
+        <img src='{{user.chat.mg.url}}'>
+        <p>{{user.username}}</p>
+        <p>{{user.first_name}}</p>
+        <p>{{user.last_name}}</p>
+        <p>{{user.chat.ph}}</p>
+        <p>{{user.chat.birth}}</p>
+        <p>{{user.email}}</p>
+        <p>{{user.chat.country}}</p>
+        <p>{{user.chat.adrs}}</p>
+        <a href="{% url 'home' %}" ><button>back</button> </a>
+        </div>
+    </body>
+</html>

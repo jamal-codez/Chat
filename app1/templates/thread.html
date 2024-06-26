@@ -1,0 +1,52 @@
+<!--% load crispy_forms_tags %-->
+{% if thread.user == request.user%}
+    <h5>@{{ thread.receiver }}</h5>
+{% else %}
+    <h5>@{{ thread.user }}</h5>
+{% endif %}
+    {% if message_list.all.count == 0 %}
+        <p >No Messages</p>
+    {% endif %}
+    {% for message in message_list %}
+        {% if message.sender_user == request.user %}
+            {% if message.body %}
+                <p>me: {{ message.body }}</p>
+            {% endif %}
+            {% if message.image %}
+                <p> me:        <embed src="{{message.image.url}}" width="200" height="200"></p>
+            {% endif %}
+            {% if message.file %}
+                <p>me: <embed src="{{message.file.url}}" width="200" height="200"><a href="{{message.file.url }}" download="file"> downlod file</a></p>
+            {% endif %}
+        {% elif message.receiver_user == request.user%}
+            {% if thread.user == request.user%}
+                {% if message.body %}
+                    <h5>{{ thread.receiver }}: {{ message.body }} </h5>
+                {% endif %}
+                
+                {% if message.image %}
+                    <h5>{{ thread.receiver }}:<embed src="{{message.image.url}}" width="200" height="200"></h5>
+                {% endif %}
+                {% if message.file %}
+                    <h5>{{ thread.receiver }}:<embed src="{{message.file.url}}" width="200" height="200"><a href="{{message.file.url }}" download="file"> downlod file</a></h5>
+                {% endif %}
+            {% else %}
+                {% if message.body %}
+                    <h5>{{ thread.user }}: {{ message.body }} </h5>
+                {% endif %}
+                {% if message.image %}
+                    <h5>{{ thread.user }}:<embed src="{{message.image.url}}" width="200" height="200"></h5>
+                {% endif %}
+                {% if message.file %}
+                    <h5>{{ thread.user }}:<embed src="{{message.file.url}}" width="200" height="200"><a href="{{message.file.url }}" download="file"> downlod file</a></h5>
+                    
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+      <form method="POST" action="{% url 'create-message' thread.pk %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button class="btn btn-light" type="submit">Send Message</button>
+      </form>
+    <a href="{% url 'inbox' %}" class="inbox-icon"><button> Back to CHAT</button></a>

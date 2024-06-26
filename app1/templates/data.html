@@ -1,0 +1,21 @@
+<h1>DATA BASE</h1>
+<table border="1">
+    <tr>
+        <td>Index</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Password</td>
+        <td>Phone Number</td>
+        <td>Date OF Birth</td>
+    </tr>
+    {% for x in users %} 
+    <tr>
+        <td>{{x.id}}</td>
+        <td>{{x.fname}}</td>
+        <td>{{x.lname}}</td>
+        <td>{{x.passw}}</td>
+        <td>{{x.ph}}</td>
+        <td>{{x.birth}}</td>
+    </tr>
+    {% endfor %}
+</table>

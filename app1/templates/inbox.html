@@ -1,0 +1,13 @@
+
+<form method="GET" action="{% url 'create-thread' %}">
+    <button type="submit">Start a Conversation</button>
+</form>
+
+<h3> CHAT</h3>
+{% for thread in threads.all %}
+    {% if thread.user == request.user%}
+        <h5><a href="{% url 'thread' thread.pk %}">{{ thread.receiver }}</a></h5>
+    {% else %}
+        <h5><a href="{% url 'thread' thread.pk %}">{{ thread.user }}</a></h5>
+    {% endif %}
+{% endfor %}

@@ -1,0 +1,45 @@
+
+<form action="updaterecord/{{m.id}}" method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+    <img src='{{m.mg.url}}'>
+    <!--Change Profile Picture: <br>
+    <input type="file" name='mg' value="{{m.mg.url}}">
+    <br><br>
+    UserName:<br>
+    <input name="user" value="{{m.user}}">
+    <br><br>
+    First Name:<br>
+    <input name="first" value="{{m.fname}}">
+    <br><br>
+    Last Name:<br>
+    <input name="last" value="{{m.lname}}">
+    <br><br>
+    password:<br>
+    <input type="password" name="pass" value="{{m.paassw}}">
+    <br><br>
+    Phone Number:<br>
+    <input name="ph" value="{{m.ph}}">
+    <br><br>
+    Date of birth: <br>
+    <input type="date" name='birth' value="{{m.birth}}">
+    <br><br>
+    E-mail: <br>
+    <input type='email' name='mail' value="{{m.mail}}">
+    <br><br>
+    Country: <br>
+    <select name="country">
+        <option value="{{m.country}}">{{m.country}}</option>
+        <option value="Nigeria">Nigeria</option>
+        <option value="Mozambique">Mozambique</option>
+        <option value="Tanzania">Tanzania</option>
+        <option value="Uganda">Uganda</option>
+        <option value="Angola">Angola</option>
+        <option value="sudan">Sudan</option>
+    </select>
+    <br><br>
+    Address: <br>
+    <input  name="address" value="{{m.adrs}}">
+    <br><br>-->
+    {{form.as_p}}
+    <input type="submit" value="DONE">
+</form>

@@ -1,0 +1,7 @@
+
+<form method="POST">
+    {% csrf_token %}
+    <p>Enter the username for the person you would like to talk to.</p>
+    {{ form }}
+    <button type="submit" class="btn btn-success mt-3">Continue</button>
+  </form>

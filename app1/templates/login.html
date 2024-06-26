@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .man{
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+        .man h1{
+            font-size: 70px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: bolder;
+        }
+        .clk{
+            flex-direction: row;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="man">
+    <h1>LOGIN PAGE</h1>
+    <form action="." method="post">
+    {% csrf_token %}
+        UserName:<br>
+
+        <input name="username" id="user">
+        <br><br>
+        password:<br>
+        <input type="password" name="password" id="pass">
+        <br><br>
+        <div class="clk">
+        <button>LOGIN</button>
+        <!--<input type="submit" value="LOG-IN" class="Log" >-->
+        <a href="{% url 'acct'  %}">Create Account</a>
+        </div>
+    </form>
+    </div>
+</body>
+</html>
+
